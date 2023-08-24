@@ -45,4 +45,33 @@ reset.addEventListener('click', () => {
     }
 })
 
+function randomColour() {
+    let colour = Math.floor(Math.random()*16777215).toString(16);
+    return '#' + colour;
+}
+
+const rainbow = document.querySelector('.rainbow')
+
+rainbow.addEventListener('click', () => {
+    let val = document.getElementById('slider').value;
+    let cell = grid.children;
+    for (i = 0; i < val*val; i++){
+        cell[i].addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = randomColour();
+        })
+    }
+})
+
+const black = document.querySelector('.black')
+
+black.addEventListener('click', () => {
+    let val = document.getElementById('slider').value;
+    let cell = grid.children;
+    for (i = 0; i < val*val; i++){
+        cell[i].addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'black';
+        })
+    }
+})
+
 createGrid();
